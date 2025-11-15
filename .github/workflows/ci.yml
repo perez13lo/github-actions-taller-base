@@ -5,8 +5,20 @@ on:
   push:
     branches: [ main ]
 jobs:
-  test-trigger:
+  build_and_test:
     runs-on: ubuntu-latest
+    
     steps:
-      - name: Mostrar mensaje
-        run: echo "El trigger de CI se ejecutó correctamente"
+      - name: 1. Descargar Código del Repositorio
+        uses: actions/checkout@v4
+        
+      - name: 2. Configurar Entorno de Node.js (v20)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          
+      - name: 3. Instalar Dependencias de Proyecto
+        run: npm ci
+
+      - name: 4. Ejecutar Pruebas Unitarias con Jest
+        run: npm test
