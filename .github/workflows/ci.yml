@@ -1,0 +1,6 @@
+name: Integración Continua (CI)
+# Definimos el evento que disparará este workflow.
+# Se ejecutará con cada 'push' a la rama 'main'.
+on:
+push:
+branches: [ main ]
