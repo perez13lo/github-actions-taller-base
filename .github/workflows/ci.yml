@@ -4,3 +4,9 @@ name: Integración Continua (CI)
 on:
   push:
     branches: [ main ]
+jobs:
+  test-trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mostrar mensaje
+        run: echo "El trigger de CI se ejecutó correctamente"
