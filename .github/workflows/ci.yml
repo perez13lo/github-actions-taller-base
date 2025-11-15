@@ -7,6 +7,9 @@ on:
 jobs:
   build_and_test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: ['18', '20']
     
     steps:
       - name: 1. Descargar Código del Repositorio
